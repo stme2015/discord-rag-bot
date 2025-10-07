@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic
+prometheus_client
+voyageai
+google-genai
+PyMuPDF
+torch
+numpy
+pymongo
