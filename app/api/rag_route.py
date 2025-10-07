@@ -6,7 +6,7 @@ logger = logging.getLogger("api")
 
 router = APIRouter()
 
-@router.post("/api/rag-query")
+@router.post("/rag-query")
 async def rag_query(request: Request):
     data = await request.json()
     user_id = data.get("user_id")

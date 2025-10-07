@@ -1,15 +1,20 @@
-MONGO_URI = "mongodb+srv://vdisire_db_user:s8O6wPkVktJhsDNe@cluster0.76iy02x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-MONGO_DB = "rag_database"
-MONGO_COLLECTION = "pmaai"
+from dotenv import load_dotenv
+import os
 
-VOYAGE_API_KEY = "pa-4W0ugzuWwIQ1utpQkH47URyNbOYRxtntRnO7QuWp8tX"
-VOYAGE_MODEL = "voyage-large-2"
-EMBEDDING_DIMENSIONS = 1536
+load_dotenv()
+
+# Database Configuration
+MONGO_URI = os.getenv("MONGO_URI")
+MONGO_DB = os.getenv("MONGO_DB")
+MONGO_COLLECTION = os.getenv("MONGO_COLLECTION")
+
+# API Keys and Models
+VOYAGE_API_KEY = os.getenv("VOYAGE_API_KEY")
+VOYAGE_MODEL = os.getenv("VOYAGE_MODEL")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+EMBEDDING_DIMENSIONS = int(os.getenv("EMBEDDING_DIMENSIONS"))
 
 # Text Chunking Configuration
-CHUNK_SIZE = 500  # words per chunk
-CHUNK_OVERLAP = 100  # 20% overlap
-
-TOP_K = 5  # retrieve top 5 chunks
-
-GEMINI_API_KEY = "AIzaSyAEN1yA5bue97nur1kXANk94Z2uweSHOT4"
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE"))
+CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP"))
+TOP_K = int(os.getenv("TOP_K"))

@@ -4,10 +4,10 @@ import os
 from dotenv import load_dotenv
 import logging
 
-load_dotenv()  # Load .env for DISCORD_TOKEN, API_URL
+load_dotenv()
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-API_URL = os.getenv("API_URL", "http://localhost:8000")  # Your backend FastAPI
+API_URL = os.getenv("API_URL", "http://localhost:8000")  # FastAPI
 
 logger = logging.getLogger("discord_bot")
 logging.basicConfig(level=logging.INFO)
@@ -41,7 +41,7 @@ async def on_message(message):
             response = requests.post(
                 f"{API_URL}/api/rag-query",
                 json={"user_id": str(message.author.id), "question": question},
-                timeout=15
+                timeout=60
             )
             if response.status_code == 200:
                 data = response.json()
